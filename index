@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+      /* https://www.w3schools.com/howto/howto_css_contact_chips.asp */
+    .chip {
+      display: inline-block;
+      padding: 0 25px;
+      height: 50px;
+      font-size: 16px;
+      line-height: 50px;
+      border-radius: 25px;
+      background-color: #f1f1f1;
+    }
+    .chip img {
+      float: left;
+      margin: 0 10px 0 -25px;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+    .closebtn {
+    padding-left: 10px;
+    color: #888;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    }
+    .closebtn:hover {
+      color: #000;
+    }
+    </style>
+  </head>
+  <body>
+    <h1><center>Rezepte mit Nicholas</center></h1>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-8">
+            <form>
+                <label for="zutatInput" class="form-label">Hier bitte die Zutaten eingeben!</label>
+                <div class="mb-2 input-group">
+                  <input type="text" class="form-control" id="zutatInput">
+                  <div class="input-group-append">
+                    <button id="send" type="button" onclick="addTag()" class="btn btn-primary">Abschicken</button>
+                  </div>
+                </div>
+                <div id="tagContainer">
+                  <div class="chip">
+                    <img src="duck.png" alt="Person" width="96" height="96">
+                    Ente
+                    <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+                  </div>
+                </div>
+            </form>
+          </div>
+          <div class="col-sm-2">
+          </div>
+        </div>
+      </div>
+  </body>
+  <script>
+    function addTag(){
+      var child = document.createElement('div')
+      child.innerHTML = '<div class="chip"><img src="duck.png" alt="Person" width="96" height="96">' + document.getElementById('zutatInput').value + '<span class="closebtn" onclick="this.parentElement.style.display=\'none\'">&times;</span></div>';
+      child = child.firstChild;
+      document.getElementById('tagContainer').appendChild(child)
+      return false;
+    }
+  </script>
+</html>
